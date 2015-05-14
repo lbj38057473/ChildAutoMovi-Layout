@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.houzhi.childautomovi.adapter.TagAdapter;
 import com.houzhi.childautomovi.view.RandomForwardMoving;
@@ -21,14 +23,20 @@ public class MainActivity extends ActionBarActivity {
 
 
         TagRandomView tag = (TagRandomView) findViewById(R.id.tagView);
+        final LinearLayout linear = (LinearLayout) findViewById(R.id.tag_container);
         final TagAdapter adapter = new TagAdapter();
-        tag.setAdapter(new TagAdapter(),new RandomForwardMoving());
+        tag.setAdapter(adapter,new RandomForwardMoving());
 
         tag.setOnTagClickListener(new TagRandomView.TagClickListener() {
             @Override
             public void onTagClickListener(View view, int position, long id) {
                 //TODO click things
-                Log.d("", "tag click "+adapter.getItem(position)+" click");
+                Log.d("", "tag click " + adapter.getItem(position) + " click");
+                View view1 = getLayoutInflater().inflate(R.layout.item_tag,null);
+                ((TextView)view1.findViewById(R.id.tv_tag)).setText(adapter.getItem(position)+"");
+                linear.addView(view1);
+
+                adapter.remove(position);
             }
         });
 

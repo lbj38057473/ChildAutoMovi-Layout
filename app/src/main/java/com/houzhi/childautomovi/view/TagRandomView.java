@@ -5,6 +5,7 @@ import android.database.DataSetObserver;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
@@ -71,9 +73,15 @@ public class TagRandomView extends RelativeLayout {
     private void randomMovingAllChilds() {
         if (movingInterface != null) {
             for (int i = 0; i != getChildCount(); ++i) {
-                movingInterface.move(getChildAt(i), getWidth(), getHeight());
+                View view = getChildAt(i);
+                if(validView(view))
+                    movingInterface.move(view, getWidth(), getHeight());
             }
         }
+    }
+
+    private boolean validView(View view){
+        return view.getVisibility() != View.GONE && view.isEnabled();
     }
 
     private boolean checkViewTouchInside(View view,MotionEvent ev){
@@ -96,18 +104,22 @@ public class TagRandomView extends RelativeLayout {
             //如果已经处理了，则返回
             return handle ;
         }else{
-            if(ev.getAction() == MotionEvent.ACTION_DOWN ) {
-                for (int i = 0; i != getChildCount(); ++i) {
-                    View childView = getChildAt(i);
+            if (mOnTagClickListener != null) {
+                if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+                    for (int i = 0; i != getChildCount(); ++i) {
+                        View childView = getChildAt(i);
 
-
-                    boolean visible = checkViewTouchInside(childView, ev);
-                    Log.d(VIEW_LOG_TAG, "childView " + i + " " + visible);
-                    if (visible) {
+                        if (validView(childView)) {
+                            boolean visible = checkViewTouchInside(childView, ev);
+                            Log.d(VIEW_LOG_TAG, "childView " + i + " " + visible);
+                            if (visible) {
 //                    childView.dispatch
-                        if (mOnTagClickListener != null)
-                            mOnTagClickListener.onTagClickListener(childView, i, adapter.getItemId(i));
-                        return true;
+
+                                int position = i ;
+                                mOnTagClickListener.onTagClickListener(childView, position, adapter.getItemId(position));
+                                return true;
+                            }
+                        }
                     }
                 }
             }
@@ -126,8 +138,9 @@ public class TagRandomView extends RelativeLayout {
         if (movingInterface != null) {
 
             for (int i = 0; i != getChildCount(); ++i) {
-
-                movingInterface.init(getChildAt(i), getWidth(), getHeight());
+                View view =  getChildAt(i);
+                if(validView(view))
+                    movingInterface.init(view, getWidth(), getHeight());
             }
         }
     }
@@ -164,6 +177,8 @@ public class TagRandomView extends RelativeLayout {
         public void onChanged() {
             super.onChanged();
             //TODO 修改数据
+            Log.i(VIEW_LOG_TAG,"onChanged");
+            initChildViewByAdapter();
         }
 
         @Override
@@ -171,6 +186,40 @@ public class TagRandomView extends RelativeLayout {
             super.onInvalidated();
         }
     };
+
+
+    /**
+     * 根据adapter 来修改子类
+     */
+    private void initChildViewByAdapter(){
+
+        int adapterStart = 0 ;
+
+        //已经存在的
+        for (int i = 0 ; i < getChildCount() ; ++ i){
+            adapterStart = i ;
+            if(i >= adapter.getCount()){
+                removeViewAt(i);
+                continue;
+            }
+            View curView = getChildAt(i);
+            LayoutParams params = (LayoutParams)curView.getLayoutParams();
+            curView = adapter.getView(i,curView,this);
+
+
+            curView.setLayoutParams(params);
+            removeViewAt(i);
+            addView(curView,i);
+        }
+
+        //不存在的
+        for(;adapterStart < adapter.getCount(); ++ adapterStart ){
+            View childView = adapter.getView(adapterStart, null, this);
+            addView(childView);
+        }
+
+    }
+
     /**
      * 该Adapter不会像ListView一样有重用机制
      *
@@ -178,14 +227,11 @@ public class TagRandomView extends RelativeLayout {
      */
     public void setAdapter(BaseAdapter adapter) {
 
-        for (int index = 0; index != adapter.getCount(); ++index) {
-            View childView = adapter.getView(index, null, this);
 
-            addView(childView);
-
-        }
 
         this.adapter = adapter;
+
+        initChildViewByAdapter();
 
         adapter.registerDataSetObserver(dataSetObserver);
 

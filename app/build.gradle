@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "houzhi.com.childautomovi"
+        applicationId "com.houzhi.childautomovi"
         minSdkVersion 8
         targetSdkVersion 22
         versionCode 1
