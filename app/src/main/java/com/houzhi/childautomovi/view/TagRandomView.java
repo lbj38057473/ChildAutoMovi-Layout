@@ -2,23 +2,17 @@ package com.houzhi.childautomovi.view;
 
 import android.content.Context;
 import android.database.DataSetObserver;
-import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -196,28 +190,32 @@ public class TagRandomView extends RelativeLayout {
         int adapterStart = 0 ;
 
         //已经存在的
-        for (int i = 0 ; i < getChildCount() ; ++ i){
-            adapterStart = i ;
-            if(i >= adapter.getCount()){
+        for (int i = 0 ; i < getChildCount() ; ) {
+
+            if (i >= adapter.getCount()) {
                 removeViewAt(i);
                 continue;
             }
             View curView = getChildAt(i);
-            LayoutParams params = (LayoutParams)curView.getLayoutParams();
-            curView = adapter.getView(i,curView,this);
+            LayoutParams params = (LayoutParams) curView.getLayoutParams();
+            View nView = adapter.getView(i, curView, this);
 
+            if (nView != curView) {
+                nView.setLayoutParams(params);
+                removeViewAt(i);
 
-            curView.setLayoutParams(params);
-            removeViewAt(i);
-            addView(curView,i);
+                addView(nView, i);
+//                assert getChildAt(i) == nView;
+            }
+            ++i;
         }
-
+        adapterStart = getChildCount() ;
         //不存在的
         for(;adapterStart < adapter.getCount(); ++ adapterStart ){
             View childView = adapter.getView(adapterStart, null, this);
             addView(childView);
         }
-
+        invalidate();
     }
 
     /**
@@ -240,8 +238,9 @@ public class TagRandomView extends RelativeLayout {
 
             @Override
             public void onGlobalLayout() {
-                counts++;
-                if (counts < 2) {
+
+                if (counts < 1 && getWidth() > 0) {
+                    counts++;
                     Log.i("", "counts init tag initSign");
                     randInitChilds();
                 }

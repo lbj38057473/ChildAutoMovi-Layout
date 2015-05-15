@@ -22,25 +22,40 @@ public class MainActivity extends ActionBarActivity {
         setContentView(com.houzhi.childautomovi.R.layout.activity_main);
 
 
-        TagRandomView tag = (TagRandomView) findViewById(R.id.tagView);
+        TagRandomView tagRandomView = (TagRandomView) findViewById(R.id.tagView);
         final LinearLayout linear = (LinearLayout) findViewById(R.id.tag_container);
         final TagAdapter adapter = new TagAdapter();
-        tag.setAdapter(adapter,new RandomForwardMoving());
+        tagRandomView.setAdapter(adapter, new RandomForwardMoving());
 
-        tag.setOnTagClickListener(new TagRandomView.TagClickListener() {
+        tagRandomView.setOnTagClickListener(new TagRandomView.TagClickListener() {
             @Override
             public void onTagClickListener(View view, int position, long id) {
                 //TODO click things
                 Log.d("", "tag click " + adapter.getItem(position) + " click");
-                View view1 = getLayoutInflater().inflate(R.layout.layout_linear_tag,null);
-                ((TextView)view1.findViewById(R.id.tv_tag)).setText(adapter.getItem(position)+"");
+                View view1 = getLayoutInflater().inflate(R.layout.layout_linear_tag, null);
+                final String tag = adapter.getItem(position) + "";
+                ((TextView) view1.findViewById(R.id.tv_tag)).setText(tag);
                 linear.addView(view1);
 
                 adapter.remove(position);
+
+
+
+                //移除处理
+                view1.setOnLongClickListener(new View.OnLongClickListener() {
+
+                    @Override
+                    public boolean onLongClick(View v) {
+                        linear.removeView(v);
+                        adapter.add(tag);
+                        return true;
+                    }
+                });
+
             }
         });
 
-        tag.startMoving();
+        tagRandomView.startMoving();
     }
 
     @Override
