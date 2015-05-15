@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
             public void onTagClickListener(View view, int position, long id) {
                 //TODO click things
                 Log.d("", "tag click " + adapter.getItem(position) + " click");
-                View view1 = getLayoutInflater().inflate(R.layout.item_tag,null);
+                View view1 = getLayoutInflater().inflate(R.layout.layout_linear_tag,null);
                 ((TextView)view1.findViewById(R.id.tv_tag)).setText(adapter.getItem(position)+"");
                 linear.addView(view1);
 
