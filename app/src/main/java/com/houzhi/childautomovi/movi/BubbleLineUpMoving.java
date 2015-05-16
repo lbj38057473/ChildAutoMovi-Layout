@@ -15,28 +15,31 @@ public class BubbleLineUpMoving implements ViewMovingInterface{
 
 
 
-    public static final int SINGLE_MOVING_STEPS = 4 ;
 
-    public int getPerMaxMovingSteps() {
-        return perMaxMovingSteps;
+    public int getPerMaxVerticalMovingSteps() {
+        return perMaxVerticalMovingSteps;
     }
 
     /**
-     * 设置每一步最大的移动大小，这是水平跟垂直分开的
-     * @param perMaxMovingSteps
+     * 设置每一步最大的移动大小，这是水平跟垂直分开的 默认4
+     * @param perMaxVerticalMovingSteps
      */
-    public void setPerMaxMovingSteps(int perMaxMovingSteps) {
-        this.perMaxMovingSteps = perMaxMovingSteps;
+    public void setPerMaxVerticalMovingSteps(int perMaxVerticalMovingSteps) {
+        this.perMaxVerticalMovingSteps = perMaxVerticalMovingSteps;
     }
 
-    private int perMaxMovingSteps = SINGLE_MOVING_STEPS ;
+    private int perMaxVerticalMovingSteps = 4 ;
 
-    private int initMaxVerticalDistance = 30 ;
+    private int initMaxVerticalDistance = 60 ;
 
     public int getInitMaxVerticalDistance() {
         return initMaxVerticalDistance;
     }
 
+    /**
+     * 设置初始化的时候，每个view垂直位置相差的最大值.默认60
+     * @param initMaxVerticalDistance
+     */
     public void setInitMaxVerticalDistance(int initMaxVerticalDistance) {
         this.initMaxVerticalDistance = initMaxVerticalDistance;
     }
@@ -51,7 +54,7 @@ public class BubbleLineUpMoving implements ViewMovingInterface{
      * @return 一个正数在 0 与SINGLE_MOVING_STEPS之间的数
      */
     private int nextRandomSteps(){
-        return movingRandom.nextInt() % perMaxMovingSteps ;
+        return movingRandom.nextInt() % perMaxVerticalMovingSteps;
     }
 
 
