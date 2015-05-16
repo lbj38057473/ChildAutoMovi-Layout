@@ -1,4 +1,4 @@
-package com.houzhi.childautomovi.view;
+package com.houzhi.childautomovi.movi;
 
 import android.view.View;
 
@@ -6,7 +6,10 @@ import android.view.View;
  * Created by houzhi on 15-5-13.
  */
 public interface ViewMovingInterface {
-
+    /**
+     * viewMovingInterface 标记
+     */
+    public static final String ViewMovingInterface_TAG = "ViewMoving";
     /**
      * 移动
      * @param view

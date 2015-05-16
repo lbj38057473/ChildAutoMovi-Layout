@@ -12,7 +12,8 @@ import android.view.ViewTreeObserver;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
+import com.houzhi.childautomovi.movi.ViewMovingInterface;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,7 +21,7 @@ import java.util.TimerTask;
  * Created by houzhi on 15-5-11.
  * 作为一个随机飘动View,通过margin的参数来设置view的位置，所以不要给子View设置margin
  */
-public class TagRandomView extends RelativeLayout {
+public class ChildMoviView extends RelativeLayout {
 
     public static interface TagClickListener{
         void onTagClickListener( View view, int position, long id);
@@ -82,9 +83,8 @@ public class TagRandomView extends RelativeLayout {
         LayoutParams params = (LayoutParams)view.getLayoutParams();
         float x = ev.getX() ;
         float y = ev.getY() ;
-
-        if( params.topMargin <  y && params.topMargin + view.getHeight() > y
-                && params.leftMargin < x && params.leftMargin + view.getWidth() > x ){
+        if( view.getBottom() >= y && view.getTop() <= y
+                && view.getLeft() <= x && view.getRight() >= x ){
             return true ;
         }else {
             return false;
@@ -121,12 +121,6 @@ public class TagRandomView extends RelativeLayout {
         }
     }
 
-    /**
-     * 设置标签之能够朝着一个方向移动
-     */
-    private ArrayList<Integer> topIncSign = new ArrayList<>();
-    private ArrayList<Integer> leftIncSign = new ArrayList<>();
-
 
     private void randInitChilds() {
         if (movingInterface != null) {
@@ -146,11 +140,11 @@ public class TagRandomView extends RelativeLayout {
         this.movingInterface = movingInterface;
     }
 
-    public TagRandomView(Context context) {
+    public ChildMoviView(Context context) {
         super(context);
     }
 
-    public TagRandomView(Context context, AttributeSet attrs) {
+    public ChildMoviView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -256,10 +250,10 @@ public class TagRandomView extends RelativeLayout {
 //        randInitChilds();
 //getChildVisibleRect()
 
-        timer.scheduleAtFixedRate(timerTask, 0, 100);
+        timer.scheduleAtFixedRate(timerTask, 1000, 20);
     }
 
-    public TagRandomView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ChildMoviView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
