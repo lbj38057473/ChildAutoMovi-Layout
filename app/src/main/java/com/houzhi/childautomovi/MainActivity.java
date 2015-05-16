@@ -49,6 +49,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public boolean onLongClick(View v) {
                         linear.removeView(v);
+                        linear.invalidate();
                         adapter.add(tag);
                         return true;
                     }

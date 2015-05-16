@@ -208,6 +208,8 @@ public class ChildMoviView extends RelativeLayout {
         for(;adapterStart < adapter.getCount(); ++ adapterStart ){
             View childView = adapter.getView(adapterStart, null, this);
             addView(childView);
+            if(getWidth() > 0 )
+                movingInterface.init(childView,getWidth(),getHeight());
         }
         invalidate();
     }

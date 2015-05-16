@@ -88,17 +88,19 @@ public class BubbleLineUpMoving implements ViewMovingInterface{
     public void move(View view,int width,int height) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
 
-
+        if( leftIncSignMap.get(getViewIndependentKey(view))==null ){
+            initSign(view);
+        }
         //只需要两个margin 就可以确定位置了
 
         int next = Math.abs(nextRandomSteps());
         params.bottomMargin =  next + params.bottomMargin ;
 
+
         if(params.bottomMargin > height ){
             //回到最下面
-            params.bottomMargin =  - nextRandomSteps() ;
+            params.bottomMargin =  - Math.abs(nextRandomSteps() );
         }
-
 
         int sign = leftIncSignMap.get(getViewIndependentKey(view));
         params.leftMargin = nextPositiveHorizontalSteps() * sign + params.leftMargin ;
@@ -123,6 +125,7 @@ public class BubbleLineUpMoving implements ViewMovingInterface{
 //        }
 
         view.setLayoutParams(params);
+        view.invalidate();
     }
 
     private String getViewIndependentKey(View view){
