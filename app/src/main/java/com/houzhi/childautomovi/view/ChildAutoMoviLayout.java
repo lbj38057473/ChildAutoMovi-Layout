@@ -21,7 +21,7 @@ import java.util.TimerTask;
  * Created by houzhi on 15-5-11.
  * 作为一个随机飘动View,通过margin的参数来设置view的位置，所以不要给子View设置margin
  */
-public class ChildMoviView extends RelativeLayout {
+public class ChildAutoMoviLayout extends RelativeLayout {
 
     public static interface TagClickListener{
         void onTagClickListener( View view, int position, long id);
@@ -140,11 +140,11 @@ public class ChildMoviView extends RelativeLayout {
         this.movingInterface = movingInterface;
     }
 
-    public ChildMoviView(Context context) {
+    public ChildAutoMoviLayout(Context context) {
         super(context);
     }
 
-    public ChildMoviView(Context context, AttributeSet attrs) {
+    public ChildAutoMoviLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -255,7 +255,7 @@ public class ChildMoviView extends RelativeLayout {
         timer.scheduleAtFixedRate(timerTask, 1000, 20);
     }
 
-    public ChildMoviView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ChildAutoMoviLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

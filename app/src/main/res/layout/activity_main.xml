@@ -14,11 +14,11 @@
 
     </LinearLayout>
 
-    <com.houzhi.childautomovi.view.ChildMoviView
+    <com.houzhi.childautomovi.view.ChildAutoMoviLayout
         android:id="@+id/tagView"
         android:layout_below="@+id/tag_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </com.houzhi.childautomovi.view.ChildMoviView>
+    </com.houzhi.childautomovi.view.ChildAutoMoviLayout>
 
 </RelativeLayout>

@@ -10,10 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.houzhi.childautomovi.adapter.TagAdapter;
-import com.houzhi.childautomovi.movi.BubbleDirectUpMoving;
 import com.houzhi.childautomovi.movi.BubbleLineUpMoving;
-import com.houzhi.childautomovi.movi.RandomForwardMoving;
-import com.houzhi.childautomovi.view.ChildMoviView;
+import com.houzhi.childautomovi.view.ChildAutoMoviLayout;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -24,12 +22,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(com.houzhi.childautomovi.R.layout.activity_main);
 
 
-        ChildMoviView tagRandomView = (ChildMoviView) findViewById(R.id.tagView);
+        ChildAutoMoviLayout tagRandomView = (ChildAutoMoviLayout) findViewById(R.id.tagView);
         final LinearLayout linear = (LinearLayout) findViewById(R.id.tag_container);
         final TagAdapter adapter = new TagAdapter();
         tagRandomView.setAdapter(adapter, new BubbleLineUpMoving());
 
-        tagRandomView.setOnTagClickListener(new ChildMoviView.TagClickListener() {
+        tagRandomView.setOnTagClickListener(new ChildAutoMoviLayout.TagClickListener() {
             @Override
             public void onTagClickListener(View view, int position, long id) {
                 //TODO click things
