@@ -1,4 +1,4 @@
-# 子View按规则自动移动Layout
+#子View按规则自动移动Layout
 
 
 
@@ -6,17 +6,17 @@
 
 实现起来其实比较简单，写了一下之后，感觉完全可以做一个可以很好地重用，并且方便扩展移动规则的View。趁着平时时间，就干脆实现了它，并且粗略写了几种移动规则。
 
-＃＃ChildAutoMoviLayout实现
-＃＃＃父类
+##ChildAutoMoviLayout实现
+###父类
 考虑到平时使用起来比较方便使用的是RelativeLayout，所以用ChildAutoMoviLayout作为RelativeLayout的子类。这样用户在使用这个Layout的时候，
 可以更加方便地扩展。比如使用Margins。
 
-＃＃＃添加子View方式
+###添加子View方式
 另外，因为每个子View可以要求为一致，因为自动移动，基本上是一些差不多形式的View移动。所以我使用Android AbsListView的Adapter作为ChildAutoMoviLayout
 的Adapter。ChildAutoMoviLayout通过读取Adapter来给它自己添加子View 。ChildAutoMoviLayout不通过addView来添加View。这样用户只要实现一个
 Adapter就可以了。甚至可以直接把ListView的Adapter拿来使用。
 
-＃＃＃移动规则
+###移动规则
 移动规则，我设计一个接口，用户只要实现那个接口，并且给ChildAutoMoviLayout就可以了。setMoviInterface。移动规则采用两个方法
 
             /**    
