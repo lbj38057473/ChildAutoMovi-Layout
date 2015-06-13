@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.houzhi.childautomovi.adapter.TagAdapter;
 import com.houzhi.childautomovi.movi.BubbleLineUpMoving;
+import com.houzhi.childautomovi.movi.RandomForwardMoving;
 import com.houzhi.childautomovi.view.ChildAutoMoviLayout;
 
 
@@ -25,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         ChildAutoMoviLayout tagRandomView = (ChildAutoMoviLayout) findViewById(R.id.tagView);
         final LinearLayout linear = (LinearLayout) findViewById(R.id.tag_container);
         final TagAdapter adapter = new TagAdapter();
-        tagRandomView.setAdapter(adapter, new BubbleLineUpMoving());
+        tagRandomView.setAdapter(adapter, new RandomForwardMoving());
 
         tagRandomView.setOnTagClickListener(new ChildAutoMoviLayout.TagClickListener() {
             @Override

@@ -11,7 +11,7 @@ import java.util.Random;
  * Created by houzhi on 15-5-13.
  */
 public class RandomForwardMoving implements ViewMovingInterface{
-    public static final int SINGLE_MOVING_STEPS = 10 ;
+    public static final int SINGLE_MOVING_STEPS = 4 ;
 
 
 

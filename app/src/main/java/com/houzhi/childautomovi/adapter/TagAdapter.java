@@ -1,6 +1,7 @@
 package com.houzhi.childautomovi.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +19,31 @@ import java.util.ArrayList;
 public class TagAdapter extends BaseAdapter {
 
     public TagAdapter(){
-        list.add("忧郁");
-        list.add("欢乐");
-        list.add("爱情");
-        list.add("美女");
-        list.add("帅哥");
+        list.add("Gloomy");
+        list.add("Happy");
+        list.add("Love");
+        list.add("Beauty");
+        list.add("Handsome");
+        list.add("Pet");
+        list.add("Cars");
+        list.add("Wild");
+
+        colors.add(Color.BLUE);
+        colors.add(Color.GREEN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.RED);
+        colors.add(Color.BLUE);
+        colors.add(Color.GREEN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.RED);
     }
 
-    ArrayList<String> list = new ArrayList<>();
+    private ArrayList<String> list = new ArrayList<>();
 
+    /**
+     * color
+     */
+    private ArrayList<Integer> colors = new ArrayList<>();
 
     public void remove(int position){
         list.remove(position);
@@ -57,7 +74,9 @@ public class TagAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_tag,null);
-        ((TextView)view.findViewById(R.id.tv_tag)).setText(list.get(position));
+        TextView tv = ((TextView)view.findViewById(R.id.tv_tag));
+        tv.setText(list.get(position));
+        tv.setTextColor(colors.get(position));
         return view;
     }
 

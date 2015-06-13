@@ -249,8 +249,6 @@ public class ChildAutoMoviLayout extends RelativeLayout {
 
     public void startMoving() {
         //init childView position
-//        randInitChilds();
-//getChildVisibleRect()
 
         timer.scheduleAtFixedRate(timerTask, 1000, 20);
     }
