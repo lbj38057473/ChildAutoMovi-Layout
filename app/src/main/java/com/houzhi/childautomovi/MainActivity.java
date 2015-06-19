@@ -2,7 +2,6 @@ package com.houzhi.childautomovi;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import com.houzhi.childautomovi.adapter.TagAdapter;
 import com.houzhi.childautomovi.movi.BubbleLineUpMoving;
 import com.houzhi.childautomovi.movi.RandomForwardMoving;
+import com.houzhi.childautomovi.utils.LogUtils;
 import com.houzhi.childautomovi.view.ChildAutoMoviLayout;
 
 
@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onTagClickListener(View view, int position, long id) {
                 //TODO click things
-                Log.d("", "tag click " + adapter.getItem(position) + " click");
+                LogUtils.d("", "tag click " + adapter.getItem(position) + " click");
                 View view1 = getLayoutInflater().inflate(R.layout.layout_linear_tag, null);
                 final String tag = adapter.getItem(position) + "";
                 ((TextView) view1.findViewById(R.id.tv_tag)).setText(tag);

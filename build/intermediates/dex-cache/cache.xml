@@ -2,53 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/home/houzhi/AndroidstudioProjects/ChildAutoMovi-View/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/libs/internal_impl-22.0.0.jar"
+        jar="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/pre-dexed/debug/classes-38644b8b19a644723eab16e8e2ca8fe15ecb1555.jar" />
+    </item>
+    <item
+        jar="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi-View/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-afce77b160245dd828fe25836f0bb576038d5c1d.jar" />
+        <dex dex="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-dde863041eff8ac0be668359b7bd95dea9c10fcf.jar" />
     </item>
     <item
-        jar="/home/houzhi/program/android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jar="/Users/houzhi/Documents/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-dac84149afba3d6c7259e906f2c135482fe2c002.jar" />
+        <dex dex="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-342676f3e0d6f93acd1135161628fa7a623dc13a.jar" />
     </item>
     <item
-        jar="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/pre-dexed/debug/classes-64d92acefb477c6f20aa317d6fcaeb2ac96c115c.jar" />
-    </item>
-    <item
-        jar="/home/houzhi/AndroidstudioProjects/ChildAutoMovi-View/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi-View/app/build/intermediates/pre-dexed/debug/classes-1f600d3970f06734ed97549acc8c50842856ea95.jar" />
-    </item>
-    <item
-        jar="/home/houzhi/AndroidstudioProjects/ChildAutoMovi-View/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/jars/classes.jar"
+        jar="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi-View/app/build/intermediates/pre-dexed/debug/classes-27d2059d7a440ba8b3676369d04c5f4142716ab6.jar" />
-    </item>
-    <item
-        jar="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-3f4d556ed2a6a9cb088dbf14884a4960ac6df321.jar" />
-    </item>
-    <item
-        jar="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/home/houzhi/AndroidstudioProjects/ChildAutoMovi/app/build/intermediates/pre-dexed/debug/classes-95bc37657faaff6882114021f8908c149fdfe9ce.jar" />
+        <dex dex="/Users/houzhi/git/ChildAutoMovi-Layout/app/build/intermediates/pre-dexed/debug/classes-c44040a6415855f7989092482712d62dafd22603.jar" />
     </item>
 
 </items>

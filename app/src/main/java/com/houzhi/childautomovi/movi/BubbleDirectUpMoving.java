@@ -1,8 +1,9 @@
 package com.houzhi.childautomovi.movi;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.houzhi.childautomovi.utils.LogUtils;
 
 import java.util.Random;
 
@@ -67,7 +68,7 @@ public class BubbleDirectUpMoving implements ViewMovingInterface{
             params.bottomMargin =  - nextRandomSteps() ;
         }
 
-        Log.i(ViewMovingInterface_TAG, "tag:" + params.bottomMargin + "," + params.leftMargin +"");
+        LogUtils.i(ViewMovingInterface_TAG, "tag:" + params.bottomMargin + "," + params.leftMargin + "");
 
         view.setLayoutParams(params);
     }

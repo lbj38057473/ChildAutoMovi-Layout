@@ -1,8 +1,9 @@
 package com.houzhi.childautomovi.movi;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.houzhi.childautomovi.utils.LogUtils;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -91,7 +92,7 @@ public class BubbleShakeUpMoving implements ViewMovingInterface{
             params.leftMargin = width - view.getWidth() ;
         }
 
-        Log.i("", "tag:" + params.topMargin + "," + params.leftMargin +"");
+        LogUtils.i("", "tag:" + params.topMargin + "," + params.leftMargin + "");
 //        for( int rule : params.getRules()){
 //            if(rule == ALIGN_PARENT_BOTTOM || rule == ALIGN_PARENT_END
 //                    || rule == ALIGN_PARENT_START || rule == ALIGN_PARENT_RIGHT){

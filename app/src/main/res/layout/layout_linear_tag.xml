@@ -4,6 +4,7 @@
     android:textSize="18sp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
+    android:textColor="#e8e8e8"
     android:layout_width="wrap_content" android:layout_height="wrap_content">
 
 </TextView>

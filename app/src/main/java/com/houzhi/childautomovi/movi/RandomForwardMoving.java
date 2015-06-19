@@ -1,8 +1,9 @@
 package com.houzhi.childautomovi.movi;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.houzhi.childautomovi.utils.LogUtils;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -11,8 +12,7 @@ import java.util.Random;
  * Created by houzhi on 15-5-13.
  */
 public class RandomForwardMoving implements ViewMovingInterface{
-    public static final int SINGLE_MOVING_STEPS = 4 ;
-
+    public static final int SINGLE_MOVING_STEPS = 2 ;
 
 
     public int getPerMaxMovingSteps() {
@@ -72,7 +72,7 @@ public class RandomForwardMoving implements ViewMovingInterface{
         }
         int next = nextPositiveRandomSteps() ;
         int sign = topIncSignMap.get(getViewIndependentKey(view));
-        Log.i("", "tag sign top :" +sign +" next is " + next);
+        LogUtils.i("", "tag sign top :" + sign + " next is " + next);
         assert  sign != 0 ;
         params.topMargin =  next * sign+params.topMargin ;
         if(params.topMargin < 0 ){
@@ -89,7 +89,7 @@ public class RandomForwardMoving implements ViewMovingInterface{
 
         next = nextPositiveRandomSteps() ;
         sign = leftIncSignMap.get(getViewIndependentKey(view));
-        Log.i("", "tag sign left:" +sign);
+        LogUtils.i("", "tag sign left:" +sign);
         assert  sign != 0 ;
         params.leftMargin = next * sign+ params.leftMargin ;
         if(params.leftMargin < 0 ){
@@ -103,7 +103,7 @@ public class RandomForwardMoving implements ViewMovingInterface{
             leftIncSignMap.put(getViewIndependentKey(view),-sign);
         }
 
-        Log.i("", "tag:" + params.topMargin + "," + params.leftMargin +"");
+        LogUtils.i("", "tag:" + params.topMargin + "," + params.leftMargin +"");
 //        for( int rule : params.getRules()){
 //            if(rule == ALIGN_PARENT_BOTTOM || rule == ALIGN_PARENT_END
 //                    || rule == ALIGN_PARENT_START || rule == ALIGN_PARENT_RIGHT){
@@ -120,7 +120,7 @@ public class RandomForwardMoving implements ViewMovingInterface{
     }
 
     private void initSign(View view){
-        Log.i("", "tag initSign:");
+        LogUtils.i("", "tag initSign:");
 
         Random random = new Random();
         if(random.nextInt() > 0 ) {
