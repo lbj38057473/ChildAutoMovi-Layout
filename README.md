@@ -22,12 +22,13 @@ Usage
             
 
 3. Using adapter
-I have created a example adapter in the code, you can using like this or you create a new Adapter for youself:
+
+    I have created a example adapter in the code, you can using like this or you create a new Adapter for youself:
             
             final TagAdapter adapter = new TagAdapter();    
             tagRandomView.setAdapter(adapter, new BubbleLineUpMoving());    
 
-Setting adapter and moving rules.
+    Setting adapter and moving rules.
 
             tagRandomView.setAdapter(adapter, new BubbleLineUpMoving());
 
@@ -112,7 +113,7 @@ java代码使用示例：
 
 ## License
 
-    Copyright 2015, houzhi
+    Copyright 2015, Yalantis
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
