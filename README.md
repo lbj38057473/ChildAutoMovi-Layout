@@ -63,7 +63,7 @@ Android 2.2 (API level 8)
 
 ## License
 
-    Copyright 2015, Yalantis
+    Copyright 2015, houzhi
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
