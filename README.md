@@ -5,6 +5,8 @@
 
 实现起来其实比较简单，写了一下之后，感觉完全可以做一个可以很好地重用，并且方便扩展移动规则的View。趁着平时时间，就干脆实现了它，并且粗略写了几种移动规则。
 
+![Alt Text](https://raw.githubusercontent.com/xxxzhi/ChildAutoMovi-Layout/master/movi.gif)
+
 ChildAutoMoviLayout是一个让子视图按照自定义的方式在Layout移动的Layout。适合用于在标签，类别选择的时候，需要增加动态效果情况。
 
 ##使用demo
