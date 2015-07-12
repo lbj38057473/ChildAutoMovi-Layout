@@ -6,6 +6,13 @@ There is a layout whoes child view can move by some rules you define.
 
 Usage
 ------
+
+##Gradle
+
+    compile 'com.houzhi:childautomovi:1.0.0'
+    
+
+
 1.  insert ChildAutoMoviLayout like this:
 
     <com.houzhi.childautomovi.view.ChildAutoMoviLayout    
